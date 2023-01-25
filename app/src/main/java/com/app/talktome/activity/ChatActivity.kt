@@ -60,7 +60,7 @@ class ChatActivity : AppCompatActivity() {
                         database.reference.child("chats").child(receiverRoom).child("message")
                             .child(randomKey).setValue(message).addOnSuccessListener {
                             binding.messagebox.text = null
-                            Toast.makeText(this, "Message sent!!", Toast.LENGTH_SHORT).show()
+                           Toast.makeText(this, "Message sent!!", Toast.LENGTH_SHORT).show()
                         }
                     }
 
@@ -79,7 +79,6 @@ class ChatActivity : AppCompatActivity() {
                     }
                     binding.RecyclerView.adapter = MessageAdapter(this@ChatActivity,list)
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     Toast.makeText(this@ChatActivity,"Error :$error",Toast.LENGTH_SHORT).show()
 

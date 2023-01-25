@@ -1,10 +1,12 @@
 package com.app.talktome.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.talktome.R
 import com.app.talktome.adapter.ChatAdapter
 import com.app.talktome.databinding.FragmentChatBinding
@@ -48,7 +50,9 @@ class ChatFragment : Fragment() {
                             userlist.add(users)
 
                     }
-                    binding.userListRecyclerView.adapter = ChatAdapter(requireContext(),userlist)
+                    Log.e("TAGGGGGGGGGGG", "onDataChange: ---" + userlist.toString(), )
+                    binding.userListRecyclerView.layoutManager  = LinearLayoutManager(requireActivity())
+                    binding.userListRecyclerView.adapter = ChatAdapter(requireActivity(),userlist)
                 }
 
                 override fun onCancelled(error: DatabaseError) {

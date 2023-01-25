@@ -24,6 +24,8 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var database: FirebaseDatabase
     private lateinit var storage: FirebaseStorage
     private lateinit var selectedimg: Uri
+    var imageNotUpload = true
+
     private lateinit var dialog: AlertDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,10 +59,10 @@ class ProfileActivity : AppCompatActivity() {
         //save data of profile
         binding.ContinueButton.setOnClickListener {
             if (binding.username.text!!.isEmpty()) {
-                Toast.makeText(applicationContext, "This field is required", Toast.LENGTH_SHORT)
+                Toast.makeText(applicationContext, "Enter user name", Toast.LENGTH_SHORT)
                     .show()
-            } else if (selectedimg == null) {
-                Toast.makeText(applicationContext, "This field is required", Toast.LENGTH_SHORT)
+            } else if (imageNotUpload ) {
+                Toast.makeText(applicationContext, "Please Image upload", Toast.LENGTH_SHORT)
                     .show()
 
             } else {
@@ -103,7 +105,7 @@ class ProfileActivity : AppCompatActivity() {
 
         if (data != null) {
             if (data.data != null) {
-
+                imageNotUpload = false
                 selectedimg = data.data!!
                 binding.userImage.setImageURI(selectedimg)
             }

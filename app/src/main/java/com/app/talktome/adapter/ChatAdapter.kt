@@ -1,5 +1,6 @@
 package com.app.talktome.adapter
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -13,7 +14,7 @@ import com.app.talktome.databinding.ChatUsersItemLayoutBinding
 import com.app.talktome.model.UserModel
 import com.bumptech.glide.Glide
 
-class ChatAdapter(var context: Context,var list: ArrayList<UserModel>) : RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
+class ChatAdapter(var context: Activity,var list: ArrayList<UserModel>) : RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
 
 
     inner class ChatViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -34,7 +35,7 @@ class ChatAdapter(var context: Context,var list: ArrayList<UserModel>) : Recycle
             val intent = Intent(context,ChatActivity::class.java)
             intent.putExtra("uid",user.uid)
             context.startActivity(intent)
-            Toast.makeText(context, "Message sent!!", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, "Message sent!!", Toast.LENGTH_SHORT).show()
 
 
         }

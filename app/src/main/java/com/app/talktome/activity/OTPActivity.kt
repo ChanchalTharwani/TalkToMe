@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit
 class OTPActivity : AppCompatActivity() {
     lateinit var binding: ActivityOtpactivityBinding
 
-    //craete variable for FirebaseAuth,varificationId,dialog
+    //craete variable for Fi`rebaseAuth,varificationId,dialog
     private lateinit var auth: FirebaseAuth
     private lateinit var varificationId: String
     private lateinit var dialog: AlertDialog
